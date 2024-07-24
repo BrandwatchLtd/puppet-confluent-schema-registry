@@ -18,6 +18,9 @@ SCHEMA_REGISTRY_GROUP=schema-registry
 
 SCHEMA_REGISTRY_PID="/var/run/$NAME.pid"
 
+export JMX_PORT=9998
+export SCHEMA_REGISTRY_JMX_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.rmi.port=$JMX_PORT"
+
 
 # Make sure schema-registry is started with system locale
 if [ -r /etc/default/locale ]; then
