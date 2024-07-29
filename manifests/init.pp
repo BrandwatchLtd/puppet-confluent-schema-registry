@@ -11,6 +11,7 @@ class confluent_schema_registry (
   $consumer_connector_loglevel = 'WARN',
   $zk_namespace                = undef,
   $group_id                    = undef,
+  $jmx_opts                    = undef,
 ) {
   class { 'confluent_schema_registry::install': }
   -> class { 'confluent_schema_registry::config':  }

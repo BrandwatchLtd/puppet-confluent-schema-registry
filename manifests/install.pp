@@ -64,9 +64,17 @@ class confluent_schema_registry::install {
     require => Group['schema-registry'],
   }
 
+
+  if $::confluent_schema_registry::jmx_opts != undef and $::confluent_schema_registry::jmx_opts != '' {
+    $jmx_opts = $::confluent_schema_registry::jmx_opts
+    notify { "JMX_OPTS: ${jmx_opts}": }
+  }
+
   file {
     '/etc/init.d/schema-registry':
-      source => 'puppet:///modules/confluent_schema_registry/schema-registry.init',
+      content => template('confluent_schema_registry/schema-registry.init.erb'),
+      owner   => 'schema-registry',
+      group   => 'schema-registry',
       mode   => '0755';
     $::confluent_schema_registry::app_log_dir:
       ensure  => directory,
