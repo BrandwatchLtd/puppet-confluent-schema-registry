@@ -19,7 +19,7 @@ SCHEMA_REGISTRY_GROUP=schema-registry
 SCHEMA_REGISTRY_PID="/var/run/$NAME.pid"
 
 <% if @jmx_opts -%>
-export SCHEMA_REGISTRY_JMX_OPTS=<%= @jmx_opts %>
+export SCHEMA_REGISTRY_JMX_OPTS="<%= @jmx_opts %>"
 <% end -%>
 
 # Make sure schema-registry is started with system locale
