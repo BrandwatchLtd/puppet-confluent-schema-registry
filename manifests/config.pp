@@ -10,7 +10,7 @@ class confluent_schema_registry::config (
   $kafkastore_topic                    = '_schemas',
   $kafkastore_topic_replication_factor = '3',
   $kafkastore_commit_interval_ms       = '-1',
-  $kafkastore_init_timeout_ms          = '5000',
+  $kafkastore_init_timeout_ms          = '60000',
   $kafkastore_timeout_ms               = '500',
   $kafkastore_zk_session_timeout_ms    = '10000',
   $avro_compatibility_level            = 'full',
